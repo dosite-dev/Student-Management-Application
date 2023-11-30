@@ -55,7 +55,7 @@ const remove = (id) => {
     }
     else{
         var remainingStudents=[];
-        remainingStudents = studentsData .filter (studentExists => studentExists.id === id)
+        remainingStudents = studentsData .filter (studentExists => studentExists.id !== id)
 ;        
         console.log(" 5-------removeStudent--------");
         console.log("student exists");
@@ -63,6 +63,46 @@ const remove = (id) => {
     }
 
 }
+//---------update Student---------
+const updateStudent = (id,key,value ) => {
+    var studentExist = {};
+    studentExist = studentsData.find( studentExist => studentExist.id === id);
+    console.log("studentExist");
+    if(!studentExist){
+        console.log("student not exist");
+    }
+    else{
+        studentExist[key] = value;
+        console.log("6------updateStudent------");
+        console.log(studentExist);
+        
+    }
+
+
+
+}
+
+// -------------UPdate Many students --------------------------------
+
+const updateManyStudents = ( id,student) => {
+   
+    var studentExist ={};
+    studentExist = studentsData .find(studentExist => studentExist.id === id);
+    console.log("exist");
+    if(!studentExist){
+    
+    console.log("student does not Exist");
+
+}
+else{
+    for ( key in student) {
+        studentExist[key] = student[key];
+         }
+         console.log("7------updateManyStudents------");
+         console.log(studentExist);
+    }
+}
+
 
 
 module.exports ={
@@ -71,5 +111,6 @@ module.exports ={
     findById,
     findByMany,
     remove,
-    
+    updateStudent,
+    updateManyStudents,
 }
