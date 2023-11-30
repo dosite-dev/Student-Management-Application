@@ -55,7 +55,7 @@ const remove = (id) => {
     }
     else{
         var remainingStudents=[];
-        remainingStudents = studentsData .filter (studentExists => studentExists.id === id)
+        remainingStudents = studentsData .filter (studentExists => studentExists.id !== id)
 ;        
         console.log(" 5-------removeStudent--------");
         console.log("student exists");
